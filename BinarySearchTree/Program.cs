@@ -16,16 +16,18 @@ namespace BinarySearchTree
             binarySearchTree.Insert(40);
             binarySearchTree.Insert(11);
             binarySearchTree.Insert(3);
-            binarySearchTree.Insert(16);
-            binarySearchTree.Insert(60);
-            binarySearchTree.Insert(65);
             binarySearchTree.Insert(63);
+            binarySearchTree.Insert(65);
+            binarySearchTree.Insert(60);
             binarySearchTree.Insert(67);
+            binarySearchTree.Insert(40);
             binarySearchTree.Insert(95);
 
             binarySearchTree.Display(binarySearchTree.GetRoot());
             Console.WriteLine(binarySearchTree.Size());
-            
+            bool result = binarySearchTree.Search(63, binarySearchTree.GetRoot());
+            Console.WriteLine(result);
+
         }
     }
 }

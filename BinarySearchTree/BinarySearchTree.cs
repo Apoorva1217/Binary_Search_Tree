@@ -9,6 +9,7 @@ namespace BinarySearchTree
         Node<T> Root;
         Node<T> currentNodeValue;
         int count = 0;
+        bool result = false;
         public T NodeData { get; set; }
         public BinarySearchTree<T> LeftTree { get; set; }
         public BinarySearchTree<T> RightTree { get; set; }
@@ -93,6 +94,40 @@ namespace BinarySearchTree
                 Console.WriteLine("Elements in Binary Search Tree: " + node.data);
                 Display(node.rightNode);
             }
+        }
+
+        /// <summary>
+        /// Search elements in BST
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="node"></param>
+        /// <returns></returns>
+        public bool Search(T element ,Node<T> node)
+        {
+            if (node == null)
+            {
+                return false;
+            }
+            if (this.currentNodeValue.data.Equals(element))
+            {
+                Console.WriteLine("Found the element in BST: " + this.currentNodeValue.data);
+                result = true;
+            }
+            else
+            {
+                Console.WriteLine("Current element is {0} in BST", this.currentNodeValue.data);
+            }
+            if (this.currentNodeValue.data.CompareTo(element) < 0)
+            {
+                this.currentNodeValue = this.currentNodeValue.leftNode;
+                Search(element, currentNodeValue);
+            }
+            else
+            {
+                this.currentNodeValue = this.currentNodeValue.rightNode;
+                Search(element, currentNodeValue);
+            }
+            return result;
         }
     }
 }
